@@ -1,0 +1,18 @@
+[/]
+background-color='rgb(20,20,20)'
+background-transparency-percent=0
+bold-color-same-as-fg=true
+bold-is-bright=false
+cursor-colors-set=false
+cursor-foreground-color='rgb(208,207,204)'
+font='Hack 12'
+foreground-color='rgb(208,207,204)'
+highlight-colors-set=false
+login-shell=false
+palette=['rgb(23,20,33)', 'rgb(192,28,40)', 'rgb(38,114,162)', 'rgb(162,115,76)', 'rgb(11,63,144)', 'rgb(86,21,137)', 'rgb(42,161,179)', 'rgb(208,207,204)', 'rgb(94,92,100)', 'rgb(246,97,81)', 'rgb(15,171,216)', 'rgb(233,173,12)', 'rgb(51,209,143)', 'rgb(192,97,203)', 'rgb(51,199,222)', 'rgb(255,255,255)']
+text-blink-mode='unfocused'
+use-system-font=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=true
+visible-name='slightly-blue'
