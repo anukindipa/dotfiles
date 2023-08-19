@@ -17,3 +17,9 @@ move  ```omf/themes``` folder to ```~/.local/share/omf/```
 
 ### Editors And IDEs
 Vim and Vscode are used 
+
+## tools needed
+acpi
+libnotify-bin
+i3wm
+polybar rofi
