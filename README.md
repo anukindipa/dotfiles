@@ -22,4 +22,5 @@ Vim and Vscode are used
 acpi
 libnotify-bin
 i3wm
-polybar rofi
+polybar 
+rofi
