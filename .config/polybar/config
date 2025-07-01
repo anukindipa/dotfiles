@@ -71,6 +71,8 @@ bottom =true
 background = #141414
 ;foreground = ${colors.foreground}
 foreground = #ffffffff
+icon-color = #a0b7cb
+power-color = #434343
 
 enable-ipc = true
 
@@ -81,7 +83,7 @@ line-color = #f00
 border-size = 0
 border-color = #ffff0000
 
-padding-left = 5
+padding-left = 0
 padding-right = 2
 
 module-margin-left = 1
@@ -95,13 +97,16 @@ module-margin-right = 2
 font-0 = RobotoSlab:style=Normal:size12;0
 font-1 = "Hack Nerd Font:style=Normal:size=12;0"
 font-2 = "Hack Nerd Font:style=Normal:size=19;2"
+font-3 = "FontAwesome5Free:style=Solid:pixelsize=12:antialias=false;0"
+font-4 = "Hack Nerd Font:style=Normal:size=25;6"
+
 
 modules-left = powermenu space2 i3 
 ;modules-center = mpd
 modules-center = 
 ;modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 
-modules-right =  pulseaudio space date space datemon space memory space battery space 
+modules-right =  pulseaudio space date space datemon space cpu space memory space battery space 
 
 tray-position = right
 tray-padding = 2
@@ -127,6 +132,11 @@ cursor-scroll = ns-resize
 
 
 
+[bar/second]
+inherit = bar/main
+monitor = ${env:MONITOR:HDMI-1-0}
+modules-right =  pulseaudio space date space datemon space cpu space memory space battery 
+tray-position = none
 
 [module/xwindow]
 type = internal/xwindow
@@ -173,7 +183,7 @@ label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
+label-focused-background = #6E7E8A
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
@@ -235,20 +245,21 @@ card = intel_backlight
 type = internal/cpu
 interval = 2
 ;format-prefix = " "
-format-prefix = "cpu "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = "󰍛   "
+format-prefix-foreground = ${root.icon-color}
 format-underline = #f90000
-label = %percentage:2%%
+label = | %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
 ;format-prefix = " "
-format-prefix = "󰍛   |  "
+format-prefix = "   "
+format-prefix-foreground = ${root.icon-color}
 ;format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #4bffdc
 format-underline = ${colors.gray}
-label = "%percentage_used%%  | %gb_used%"
+label = "| %percentage_used%% ¦ %gb_used%"
 
 [module/wlan]
 type = internal/network
@@ -292,30 +303,34 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-time =    | %H:%M
+time = "| %H:%M"
 time-alt = %H:%M:%S
 
 ;format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
+;format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #0a6cf5
-format-underline = ${colors.gray}
+;format-underline = ${colors.gray}
 
 label = %time%
+format-prefix = "   "
+format-prefix-foreground = ${root.icon-color}
 
 [module/datemon]
 type = internal/date
 interval = 5
 
 date-alt =	"%A-%Y-%m-%d" 
-date = "   | %Y-%m-%d"
+date = "| %Y-%m-%d"
 
 ;format-prefix = 
 ;format-prefix = Date
-format-prefix-foreground = ${colors.foreground-alt}
+;format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #0a6cf5
-format-underline = ${colors.gray}
+;format-underline = ${colors.gray}
 
 label = %date% 
+format-prefix = "   "
+format-prefix-foreground = ${root.icon-color}
 
 
 [module/pulseaudio]
@@ -323,7 +338,9 @@ type = internal/pulseaudio
 
 ;format-volume = <label-volume> <bar-volume>
 format-volume = <label-volume>
-label-volume =    | %percentage%%
+label-volume =| %percentage%%
+format-volume-prefix = "   "
+format-volume-prefix-foreground = ${root.icon-color}
 ;label-volume-foreground = ${root.foreground}
 click-right = pavucontrol
 
@@ -390,20 +407,22 @@ adapter = AC
 full-at = 98
 poll-interval = 5
 
-label-charging = "%percentage%%"
-format-charging = "    | CHR <label-charging>"
+label-charging ="| %percentage%%"
+format-charging-prefix="   "
+format-charging-prefix-foreground = ${root.icon-color}
+format-charging = "<label-charging>"
 ;format-charging-underline = #ffb52a
 format-charging-underline =#ABE9B3 
 
 ;format-discharging = <animation-discharging> <label-discharging>
 format-discharging = <ramp-capacity> <label-discharging>
-label-discharging = %percentage%%
+label-discharging = "   | BAT  %percentage%%"
 
 ;format-discharging-underline = ${self.format-charging-underline}
 format-discharging-underline =#FFFF66 
 
 format-full-prefix = "Full  | "
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-prefix-foreground = ${root.icon-color}
 format-full-underline = ${self.format-charging-underline}
 ;ramp-capacity-0 = 
 ;ramp-capacity-1 = 
@@ -414,12 +433,17 @@ ramp-capacity-0 =     | BAT
 ramp-capacity-0-underline = #FF0000
 ramp-capacity-0-foreground = #FF0000 
 
-ramp-capacity-1 =     | BAT
-ramp-capacity-2 =     | BAT
-ramp-capacity-3 =     | BAT
-ramp-capacity-4 =     | BAT
-ramp-capacity-5 =     | BAT
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
 
+ramp-capacity-1-foreground = #cbbda0 
+ramp-capacity-2-foreground = #cbbda0 
+ramp-capacity-3-foreground = #cbbda0 
+ramp-capacity-4-foreground = #cbbda0 
+ramp-capacity-5-foreground = #cbbda0 
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -455,21 +479,25 @@ ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
-
 expand-right = true
 
 ;format-spacing = 1
-
-label-open =  "󰣇 " 
-label-open-font = 3 		
+label-open =  " 󰣇 " 
+label-open-font = 3 
+label-open-background = ${root.power-color}	
 ;label-open = "󰅨  "
 ;label-open-foreground = ${colors.secondary}
 label-open-foreground =${colors.primary}
+
 ;label-close =  cancel
-label-close =  cancel
+label-close = "  cancel"
+label-close-font = 2
 label-close-foreground = ${colors.secondary}
+label-close-background = ${root.power-color}	
+
 label-separator = " | "
-label-separator-foreground = ${colors.foreground-alt}
+label-separator-background = ${root.power-color}	
+;label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = rofi 
 menu-0-0-exec = rofi -modi drun,run,window -show drun
@@ -477,16 +505,29 @@ menu-0-1 = power off
 menu-0-1-exec = menu-open-2
 menu-0-2 = reboot
 menu-0-2-exec = menu-open-1
-menu-0-3 = settings
-menu-0-3-exec = gnome-control-center 
+menu-0-3 = lock screen
+menu-0-3-exec = "i3lock -i /home/anuk/Desktop/Rice/dotfiles/wallpapers/wave.png" 
+menu-0-4 = settings
+menu-0-4-exec = gnome-control-center 
 
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+menu-0-0-background = ${root.power-color} 
+menu-0-1-background = ${root.power-color} 
+menu-0-2-background = ${root.power-color} 
+menu-0-3-background = ${root.power-color} 
+menu-0-4-background = ${root.power-color} 
+menu-1-0-background = ${root.power-color} 
+menu-1-1-background = ${root.power-color}
+menu-2-0-background = ${root.power-color} 
+menu-2-1-background = ${root.power-color}
+
+menu-1-0 = reboot
+menu-1-0-exec = sudo reboot
+menu-1-1 = cancel
+menu-1-1-exec = menu-open-0
+
 
 menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
+menu-2-0-exec = "shutdown now"
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
@@ -498,13 +539,10 @@ content = /
 
 [module/space2]
 type = custom/text
-content = |
-
-[module/round-right]
-type = custom/text
-
-content = %{T6}%{T-}
-content-foreground = ${colors.bg}
+content-foreground = ${root.power-color}
+content = 
+content-font = 5
+content-offset = -12
 
 
 [settings]

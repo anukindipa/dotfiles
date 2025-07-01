@@ -1,0 +1,5 @@
+#141414		-night (main color) 
+#D3D3CE		-timberwolf (grey)
+#386385		-blue
+#293A58		-blue
+#6D9D9F		-blue

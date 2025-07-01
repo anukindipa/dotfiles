@@ -68,6 +68,7 @@ bindsym $mod+d exec --no-startup-id ~/.config/rofi/anuk/launcher.sh
 # change focus
 # made it more like vim
 bindsym $mod+h focus left
+bindsym $mod+Tab focus right
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
@@ -204,6 +205,10 @@ exec_always --no-startup-id "picom --experimental-backends --backend glx "
 #disable title bars
 for_window [class=".*"] border pixel 1
 
+#open pavucontrol & CopyQ  floating
+for_window [title="Volume Control"] sticky enable, fullscreen disable, floating enable, resize set 640 400, move position 1280 645
+for_window [title="CopyQ"] sticky enable, fullscreen disable, floating enable, resize set 640 400, move position 1280 645
+
 # polybar
 #
 exec_always --no-startup-id ~/.scripts/polybar.sh &
@@ -214,7 +219,8 @@ bindsym $modw+space exec "polybar-msg cmd toggle"
 
 exec --no-startup-id ~/.scripts/startup.sh &
 
-
+# swap escape and capslock
+exec_always --no-startup-id setxbmap -option caps:swapescape
 
 #gaps 
 #gaps inner 10
