@@ -1,4 +1,4 @@
-return {
+<!-- return {
     "folke/which-key.nvim",
     opts = {},
     keys = {
@@ -10,5 +10,4 @@ return {
             desc = "Show <leader> keymaps (which-key)",
         },
     },
-}
-
+} -->

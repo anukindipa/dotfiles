@@ -15,3 +15,8 @@ vim.cmd.colorscheme("oxocarbon")
 
 vim.opt.nu = true                 -- set line numbers
 vim.opt.relativenumber = true     -- use relative line numbers
+
+-- Set indentation
+vim.opt.tabstop = 4       -- Number of visual spaces per TAB
+vim.opt.shiftwidth = 4    -- Number of spaces per indent (>> <<)
+vim.opt.expandtab = true  -- Use spaces instead of tabs

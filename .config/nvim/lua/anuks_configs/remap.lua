@@ -16,11 +16,30 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set("n", "<leader>t", ":vertical botright term<CR>")
 -- Map <Esc> in terminal to normal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
--- make it easier to exit
+
+-- make it easier to save and exit
 vim.keymap.set("n", "<leader>q", ":q<CR>")
+vim.keymap.set("n", "<leader>w", ":w<CR>")
 
 -- compile c++ file (main.cpp -> main)
-vim.keymap.set("n", "<leader>rc", ":w<CR>:vertical botright term://g++ % -o %< && ./%<<CR>")
+vim.keymap.set("n", "<leader>rc", ":w<CR>:vertical botright terminal g++ \"%\" -o \"%<.out\" && \"%<.out\"<CR>")
 
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<CR>")
+
+--easier to manage clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Yank line to system clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>P", '"+P', { desc = "Paste before from system clipboard" })
+
+-- select all
+vim.keymap.set('n', '<leader>a', 'ggVG', { desc = 'Select all' })
+vim.keymap.set('n', '<leader>A', 'ggVG"+y', { desc = 'Select all + yank to clipboard' })
+
+-- tab navigation
+vim.keymap.set('n', '<Tab>', ':tabnext<CR>')
+vim.keymap.set('n', '<S-Tab>', ':tabprevious<CR>')
+
+-- for leap
+vim.keymap.set('n',        's', '<Plug>(leap-anywhere)')
