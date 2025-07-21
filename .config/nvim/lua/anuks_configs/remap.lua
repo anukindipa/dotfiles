@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 -- from lazy.nvim docs
-vim.g.maplocalleader = "\\"
+--vim.g.maplocalleader = "\\"
 
 -- better navigation
 vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-w>h]])
@@ -21,8 +21,12 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 vim.keymap.set("n", "<leader>q", ":q<CR>")
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 
--- compile c++ file (main.cpp -> main)
-vim.keymap.set("n", "<leader>rc", ":w<CR>:vertical botright terminal g++ \"%\" -o \"%<.out\" && \"%<.out\"<CR>")
+-- compile c++ file (main.cpp -> main) -for linux and windows respectively
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    vim.keymap.set("n", "<leader>rc", ":w<CR>:vertical botright terminal g++ \"%\" -o \"%<.exe\" && \"%<.exe\"<CR>")
+else
+    vim.keymap.set("n", "<leader>rc", ":w<CR>:vertical botright terminal g++ \"%\" -o \"%<.out\" && ./\"%<.out\"<CR>")
+end
 
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<CR>")
