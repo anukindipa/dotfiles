@@ -11,7 +11,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 vim.opt.background = "dark" -- or "light" for light mode
-vim.cmd.colorscheme("oxocarbon")
+--vim.cmd.colorscheme("oxocarbon")
+vim.cmd.colorscheme "catppuccin-mocha"
 
 vim.opt.nu = true                 -- set line numbers
 vim.opt.relativenumber = true     -- use relative line numbers

@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 -- from lazy.nvim docs
---vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = "\\"
 
 -- better navigation
 vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-w>h]])
@@ -27,6 +27,9 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
 else
     vim.keymap.set("n", "<leader>rc", ":w<CR>:vertical botright terminal g++ \"%\" -o \"%<.out\" && ./\"%<.out\"<CR>")
 end
+-- render markdown
+vim.keymap.set("n", "<leader>rm", ":w<CR>:vertical botright terminal mdcat %<CR>")
+
 
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<CR>")
@@ -47,3 +50,7 @@ vim.keymap.set('n', '<S-Tab>', ':tabprevious<CR>')
 
 -- for leap
 vim.keymap.set('n',        's', '<Plug>(leap-anywhere)')
+
+-- lsp diagnostics
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})

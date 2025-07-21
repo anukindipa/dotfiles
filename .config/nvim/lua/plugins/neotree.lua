@@ -7,8 +7,8 @@ return{
     "MunifTanjim/nui.nvim",
   },
   lazy = false, -- neo-tree will lazily load itself
-  ---@module "neo-tree"
-  ---@type neotree.Config?
+  -- @module "neo-tree"
+  -- @type neotree.Config?
   opts = {
     -- add options here
   },
