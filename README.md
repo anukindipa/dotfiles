@@ -4,16 +4,16 @@
 
 ## About
 These are my dotfiles\
-They are made for ubuntu with gnome and i3-gaps in mind but they will probably work with anything  
+They are made for ubuntu with gnome and i3 but they will probably work with anything  
 
 ## Some Things
 
 ### Shell
-I use fish as my shell\
-i use a framework called [oh my fish]("https://github.com/oh-my-fish/oh-my-fish") with the theme of [wolf-theme]()\
-To set it up install omf and run ```omf theme wolf-theme```\
-To get back to the normal shell run ```omf theme ''```\
-move  ```omf/themes``` folder to ```~/.local/share/omf/```
+Install fish and ohmyfish. Move mypie theme to omf themes folder.
+
+### Syncing with git
+I use symlink. for example:
+`ln -s ~/dotfiles/.config/nvim ~/.config/nvim`
 
 ### Editors And IDEs
 neovim and Vscode are used 
