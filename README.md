@@ -25,3 +25,6 @@ i3wm
 polybar 
 rofi
 neovim
+kitty
+picom
+git
