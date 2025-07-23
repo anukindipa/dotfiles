@@ -25,3 +25,4 @@ i3wm
 polybar 
 rofi
 neovim
+kitty
