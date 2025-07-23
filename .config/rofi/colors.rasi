@@ -1,0 +1,11 @@
+// modified from https://github.com/adi1090x/rofi catppuccin colors
+
+* {
+    font: "RobotoMono Nerd Font 14";
+    background:     #141414FF;
+    background-alt: #282839FF;
+    foreground:     #D9E0EEFF;
+    selected:       #7AA2F7FF;
+    active:         #ABE9B3FF;
+    urgent:         #F28FADFF;
+}
