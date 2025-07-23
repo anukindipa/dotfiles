@@ -27,3 +27,4 @@ rofi
 neovim
 kitty
 picom
+git
