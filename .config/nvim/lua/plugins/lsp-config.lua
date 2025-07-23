@@ -28,6 +28,10 @@ return{
     {
         "neovim/nvim-lspconfig",
         config = function()
+            if vim.env.VSCODE_PID then
+                -- skip setting up LSPs inside VSCode
+                return
+            end
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({})
             lspconfig.clangd.setup({})
