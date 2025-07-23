@@ -54,3 +54,4 @@ vim.keymap.set('n',        's', '<Plug>(leap-anywhere)')
 -- lsp diagnostics
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action' })
