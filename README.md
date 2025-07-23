@@ -26,3 +26,4 @@ polybar
 rofi
 neovim
 kitty
+picom
