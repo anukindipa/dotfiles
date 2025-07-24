@@ -11,6 +11,9 @@ vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
+-- use space+h
+vim.keymap.set('t', '<leader>h', [[<C-\><C-n><C-w>h]])
+vim.keymap.set('n', '<leader>h', '<C-w>h')
 
 -- launch terminal
 vim.keymap.set("n", "<leader>t", ":vertical botright term<CR>")
@@ -28,7 +31,8 @@ else
     vim.keymap.set("n", "<leader>rc", ":w<CR>:vertical botright terminal g++ \"%\" -o \"%<.out\" && ./\"%<.out\"<CR>")
 end
 -- render markdown
-vim.keymap.set("n", "<leader>rm", ":w<CR>:vertical botright terminal mdcat %<CR>")
+-- vim.keymap.set("n", "<leader>rm", ":w<CR>:vertical botright terminal mdcat %<CR>")
+vim.keymap.set("n", "<leader>rm", ":w<CR>: belowright terminal pandoc % -o %<.pdf -V geometry:margin=1in && zathura %<.pdf<CR>")
 
 
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
