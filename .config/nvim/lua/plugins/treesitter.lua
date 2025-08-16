@@ -7,7 +7,7 @@ return {
         require("nvim-treesitter").setup({
             highlight = { enable = true },
             indent = { enable = true },
-            ensure_installed = { "lua", "cpp", "python", "json", "c", "markdown_inline" },
+            ensure_installed = { "lua", "cpp", "python", "json", "c", "markdown_inline", "latex" },
         })
     end,
 }
