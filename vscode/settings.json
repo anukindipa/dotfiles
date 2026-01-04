@@ -8,18 +8,41 @@
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
-    "workbench.colorTheme": "Catppuccin Mocha",
     "editor.lineNumbers": "relative",
     "C_Cpp.vcFormat.indent.withinParentheses": "alignToParenthesis",
     "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
     "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
     "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyFunction": true,
     "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4 }",
+    "cph.general.defaultLanguage": "cpp",
+    "cph.general.defaultLanguageTemplateFileLocation": "D:\\coding_projects\\competitive-programming\\templates\\t.cpp",
+    "latex-workshop.formatting.latex": "tex-fmt",
+    //
+    // GitHub Copilot Settings
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "github.copilot.enable": {
+        "quarto": false,
+        "markdown": false
+    },
+    //
+    // Theme Customization
+    "workbench.colorTheme": "Catppuccin Mocha",
     "catppuccin.colorOverrides": {
         "mocha": {
             "base": "#201e21",
             "mantle": "#19171a",
             "crust": "#141414"
         }
-    }
+    },
+    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-dark",
+    // 
+    // File Explorer Settings
+    "explorer.compactFolders": true,
+    // editor settings
+    "editor.tabSize": 4,
+    "editor.renderWhitespace": "selection",
+    "editor.fontFamily": "RobotoMono Nerd Font Mono",
+    "workbench.activityBar.location": "top",
+    "window.menuBarVisibility": "compact",
+    // "python.defaultInterpreterPath": "c:\\msys64\\mingw64\\bin\\python.exe"
 }
