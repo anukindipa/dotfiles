@@ -9,9 +9,9 @@ return{
                     frappe = {},
                     macchiato = {},
                     mocha = {
-                        base = "#201e21",
-                        mantle = "#19171a",
-                        crust = "#141414",
+                        base = "#19171a",
+                        mantle = "#141414",
+                        crust = "#131313",
                     },
                 }
             }

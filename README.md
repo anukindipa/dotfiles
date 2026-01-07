@@ -3,7 +3,8 @@
 [what's a dotfile?](https://wiki.archlinux.org/title/Dotfiles)
 
 ## About
-These are my dotfiles\
+These are my dotfiles
+
 They are made for ubuntu with gnome and i3 but they will probably work with anything  
 
 ## Some Things

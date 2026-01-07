@@ -8,7 +8,6 @@
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
-    "editor.lineNumbers": "relative",
     "C_Cpp.vcFormat.indent.withinParentheses": "alignToParenthesis",
     "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
     "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
@@ -29,9 +28,9 @@
     "workbench.colorTheme": "Catppuccin Mocha",
     "catppuccin.colorOverrides": {
         "mocha": {
-            "base": "#201e21",
-            "mantle": "#19171a",
-            "crust": "#141414"
+            "base": "#19171a",
+            "mantle": "#141414",
+            "crust": "#131313"
         }
     },
     "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-dark",

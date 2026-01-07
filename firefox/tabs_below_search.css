@@ -1,0 +1,110 @@
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/tabs_on_bottom_v2.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
+/* This reorders toolbar to place tabs below other toolbars. Requires Firefox 133+ */
+
+@media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"),
+-moz-pref("userchrome.force-window-controls-on-left.enabled") {
+    #nav-bar>.titlebar-buttonbox-container {
+        order: -1 !important;
+
+        >.titlebar-buttonbox {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+@media not (-moz-bool-pref: "sidebar.verticalTabs"),
+not -moz-pref("sidebar.verticalTabs") {
+
+    .global-notificationbox,
+    #tab-notification-deck,
+    #notifications-toolbar,
+    #TabsToolbar {
+        order: 1;
+    }
+
+    #TabsToolbar> :is(.titlebar-spacer, .titlebar-buttonbox-container) {
+        display: none;
+    }
+
+    :root[sizemode="fullscreen"] #nav-bar>.titlebar-buttonbox-container {
+        display: flex !important;
+    }
+
+    :root:is([tabsintitlebar], [customtitlebar]) #toolbar-menubar:is([autohide=""], not([autohide="false"]))~#nav-bar {
+        >.titlebar-buttonbox-container {
+            display: flex !important;
+        }
+
+        :root[sizemode="normal"] & {
+            >.titlebar-spacer {
+                display: flex !important;
+            }
+        }
+
+        :root[sizemode="maximized"] & {
+            >.titlebar-spacer[type="post-tabs"] {
+                display: flex !important;
+            }
+
+            @media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"),
+            -moz-pref("userchrome.force-window-controls-on-left.enabled"),
+            (-moz-gtk-csd-reversed-placement),
+            (-moz-platform: macos) {
+                >.titlebar-spacer[type="post-tabs"] {
+                    display: none !important;
+                }
+
+                >.titlebar-spacer[type="pre-tabs"] {
+                    display: flex !important;
+                }
+            }
+        }
+    }
+}
+
+
+#nav-bar>.titlebar-buttonbox-container {
+    display: none !important;
+    visibility: collapse;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    /**/
+    /* >.titlebar-buttonbox { */
+    /*     display: none !important; */
+    /* } */
+
+    /*     flex-direction: row-reverse; */
+}
+
+/* Remove leftover spacing/gap in the top-right corner caused by titlebar spacers
+   and nav-bar padding. This forces spacers to collapse and clears any inline
+   padding/margins so the toolbar edge is flush with the window edge. */
+#nav-bar>.titlebar-spacer,
+#nav-bar>.titlebar-spacer[type="post-tabs"],
+#nav-bar>.titlebar-spacer[type="pre-tabs"],
+#nav-bar>.titlebar-buttonbox-container {
+    display: none !important;
+    visibility: collapse !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure the nav-bar itself has no extra end padding that could create a gap */
+#nav-bar,
+#navigator-toolbox,
+#navigator-toolbox>#nav-bar {
+    padding-inline-end: 0 !important;
+    margin-inline-end: 0 !important;
+}
+
+/* Some builds/platforms add an inner container — collapse any titlebar box there too */
+.titlebar-buttonbox,
+.titlebar-spacer {
+    display: none !important;
+}
