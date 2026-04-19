@@ -214,3 +214,15 @@ tab-group[collapsed]>.tab-group-label-container .tab-group-label {
   background-color: grey !important;
   outline-color: black !important;
 }
+
+/*
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Change Font
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+*/
+* {
+    font-family: "Hack Nerd Font" !important;
+    font-size: 9pt !important;
+    font-weight: 400 !important;
+}
+
