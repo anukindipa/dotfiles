@@ -4,6 +4,12 @@ require("anuks_configs.lazy_init")
 -- if no file is specified for nvim open neotree
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
+    -- If the current buffer is a 'man' page skip it
+    if vim.bo.filetype == "man" then
+      return
+    end
+
+    -- Open files if no file is specified
     if vim.fn.argc() == 0 then
       vim.cmd("Neotree filesystem reveal left")
     end
